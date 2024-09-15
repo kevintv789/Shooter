@@ -1,20 +1,40 @@
 [gd_scene load_steps=4 format=3 uid="uid://ck4lrjvb12bu8"]
 
 [ext_resource type="Texture2D" uid="uid://dk1jgnrhv4ova" path="res://graphics/player/player.png" id="1_e5y2c"]
-[ext_resource type="Texture2D" uid="uid://d3l1idnpep3qo" path="res://graphics/projectiles/blue.png" id="2_sjkqo"]
-[ext_resource type="Texture2D" uid="uid://c38n61dsrell0" path="res://graphics/projectiles/grenade.png" id="3_sb1qy"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_nxu37"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_8xsm5"]
+radius = 57.0351
 
-[node name="PlayerImage" type="Sprite2D" parent="."]
-position = Vector2(131, 132)
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_nxu37")
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(4, -43)
 texture = ExtResource("1_e5y2c")
 
-[node name="LaserImage" type="Sprite2D" parent="PlayerImage"]
-position = Vector2(22, -213)
-texture = ExtResource("2_sjkqo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_8xsm5")
 
-[node name="GrenadeImage" type="Sprite2D" parent="."]
-position = Vector2(312, 164)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("3_sb1qy")
+[node name="LaserTimer" type="Timer" parent="."]
+
+[node name="GrenadeTimer" type="Timer" parent="."]
+
+[node name="LaserStartPositions" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(14, -133)
+
+[node name="Marker2D2" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(31, -133)
+
+[node name="Marker2D3" type="Marker2D" parent="LaserStartPositions"]
+position = Vector2(22, -137)
+
+[node name="GrenadeStartPositions" type="Node2D" parent="."]
+
+[node name="GrenadePos" type="Marker2D" parent="GrenadeStartPositions"]
+position = Vector2(23, -118)
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GrenadeTimer" to="." method="_on_grenade_timer_timeout"]
