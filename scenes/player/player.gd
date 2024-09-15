@@ -8,8 +8,8 @@ var can_laser: bool = true
 var can_grenade: bool = true
 
 # Signals
-signal player_laser_shot(position: Vector2)
-signal player_grenade_shot(position: Vector2)
+signal player_laser_shot(position: Vector2, direction: Vector2)
+signal player_grenade_shot(position: Vector2, direction: Vector2)
 
 func _process(_delta: float):
 	# Movement direction - negative x is left, positive x is right, negative y is up, positive y is down
@@ -20,24 +20,35 @@ func _process(_delta: float):
 	velocity = direction * SPEED
 	move_and_slide()
 
+	# Rotate player
+	look_at(get_global_mouse_position())
+
+
+	# Calculate direction from grenade to mouse position
+	# We normalize the direction to get a unit vector
+	var player_direction = (get_global_mouse_position() - position).normalized()
+
 	# Shooting input
 	if Input.is_action_pressed("primary action") and can_laser:
 		# Randomly select a marker 2D for the laser starting point
 		var laser_markers = $LaserStartPositions.get_children()
-		var selected_laser = laser_markers[randi() % laser_markers.size()]
-		
+		var laser_position = laser_markers[randi() % laser_markers.size()].global_position
+
 		$LaserTimer.start(LASER_COOLDOWN)
 		can_laser = false
 
 		# Emit signal to other scenes
-		player_laser_shot.emit(selected_laser.global_position)
+		player_laser_shot.emit(laser_position, player_direction)
 
 	# Grenade input
 	if Input.is_action_pressed("secondary action") and can_grenade:
 		var selected_grenade = $GrenadeStartPositions.get_children()
-		player_grenade_shot.emit(selected_grenade[0].global_position)
+		var player_position = selected_grenade[0].global_position
+
 		$GrenadeTimer.start(GRENADE_COOLDOWN)
 		can_grenade = false
+
+		player_grenade_shot.emit(player_position, player_direction)
 
 # When the timer times out, we can shoot again
 func _on_timer_timeout() -> void:
@@ -45,4 +56,4 @@ func _on_timer_timeout() -> void:
 
 
 func _on_grenade_timer_timeout() -> void:
-		can_grenade = true
+	can_grenade = true
