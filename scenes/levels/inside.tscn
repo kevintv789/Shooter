@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dw0vmm0vwa5xk"]
+[gd_scene load_steps=12 format=4 uid="uid://dw0vmm0vwa5xk"]
 
 [ext_resource type="PackedScene" uid="uid://bf67ypgt4lnrd" path="res://scenes/levels/level.tscn" id="1_1lvd8"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_pturt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://vrspv51jnhth" path="res://graphics/lights/overlays/infrastructure.png" id="5_vcg4e"]
 [ext_resource type="PackedScene" uid="uid://djqj56anu6y0n" path="res://scenes/bed/simple_light.tscn" id="6_14akk"]
 [ext_resource type="PackedScene" uid="uid://bow1g8yhbbyev" path="res://scenes/bed/wall_lamp.tscn" id="7_vxte1"]
+[ext_resource type="PackedScene" uid="uid://c2ltisosrmh2d" path="res://scenes/items/item.tscn" id="10_n5hu5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8yov"]
 size = Vector2(734, 316)
@@ -100,5 +101,8 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExitGateArea" index="0"]
 position = Vector2(357, 148)
 shape = SubResource("RectangleShape2D_u8yov")
+
+[node name="Item" parent="." index="7" instance=ExtResource("10_n5hu5")]
+position = Vector2(2331, 3067)
 
 [connection signal="body_entered" from="ExitGateArea" to="." method="_on_exit_gate_area_body_entered"]

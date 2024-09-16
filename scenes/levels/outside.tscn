@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://3xki1jyp2w4m"]
+[gd_scene load_steps=15 format=4 uid="uid://3xki1jyp2w4m"]
 
 [ext_resource type="PackedScene" uid="uid://bf67ypgt4lnrd" path="res://scenes/levels/level.tscn" id="1_g1v5w"]
 [ext_resource type="PackedScene" uid="uid://cnms0a2ujs132" path="res://scenes/bed/gate.tscn" id="2_5hldb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://qqeus4de4m7v" path="res://graphics/tilesets/outside_walls.png" id="5_than6"]
 [ext_resource type="PackedScene" uid="uid://j7vkqv0s484u" path="res://scenes/bed/house.tscn" id="6_6acpl"]
 [ext_resource type="PackedScene" uid="uid://djgovq80aka47" path="res://scenes/items/toilet.tscn" id="9_or3us"]
+[ext_resource type="PackedScene" uid="uid://c2ltisosrmh2d" path="res://scenes/items/item.tscn" id="10_jbifc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7n2o1"]
 resource_name = "soil"
@@ -4694,5 +4695,8 @@ metadata/_edit_group_ = true
 
 [node name="Toilet" parent="." index="4" instance=ExtResource("9_or3us")]
 position = Vector2(2459, 1184)
+
+[node name="Item" parent="." index="7" instance=ExtResource("10_jbifc")]
+position = Vector2(467, -94)
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
