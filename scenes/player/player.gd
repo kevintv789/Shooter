@@ -37,6 +37,9 @@ func _process(_delta: float):
 		$LaserTimer.start(LASER_COOLDOWN)
 		can_laser = false
 
+		# Play laser particle
+		$LaserParticle.emitting = true
+
 		# Emit signal to other scenes
 		player_laser_shot.emit(laser_position, player_direction)
 
