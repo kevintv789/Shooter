@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bf67ypgt4lnrd"]
+[gd_scene load_steps=15 format=4 uid="uid://bf67ypgt4lnrd"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_vwian"]
 [ext_resource type="Texture2D" uid="uid://cn82j77kc78e7" path="res://graphics/ground/stones.png" id="2_8wgr8"]
@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://qqeus4de4m7v" path="res://graphics/tilesets/outside_walls.png" id="4_5jrku"]
 [ext_resource type="Texture2D" uid="uid://oxq036c4aoxa" path="res://graphics/tilesets/soil.png" id="5_ttp27"]
 [ext_resource type="PackedScene" uid="uid://gpb3oc53mm1g" path="res://scenes/bed/steam_vent.tscn" id="6_t14m7"]
-[ext_resource type="PackedScene" uid="uid://b7up22fb4pqag" path="res://scenes/bed/light_fan_animation.tscn" id="6_ygcsk"]
 [ext_resource type="PackedScene" uid="uid://j7vkqv0s484u" path="res://scenes/bed/house.tscn" id="8_cx80v"]
 [ext_resource type="PackedScene" uid="uid://bow1g8yhbbyev" path="res://scenes/bed/wall_lamp.tscn" id="9_b24ed"]
 
@@ -4686,9 +4685,6 @@ tile_set = SubResource("TileSet_v5kyk")
 tile_map_data = PackedByteArray("AAD8//z/AAABAAEAAAD8//3/AAAAAAIAAAD8//7/AAAAAAIAAAD8////AAAAAAIAAAD8/wAAAAAAAAIAAAD8/wEAAAAAAAIAAAD8/wIAAAAAAAIAAAD8/wMAAAAAAAIAAAD8/wQAAAAAAAIAAAD8/wUAAAAAAAIAAAD9/wYAAAABAAAAAAD8/wYAAAABAAIAAAD+/wYAAAABAAAAAAACAAYAAAABAAAAAAADAAYAAAABAAAAAAAEAAYAAAABAAAAAAAFAAYAAAABAAAAAAAGAAYAAAABAAAAAAAHAAYAAAABAAAAAAAIAAYAAAABAAAAAAAJAAYAAAABAAAAAAAKAAYAAAABAAAAAAALAAYAAAABAAAAAAAMAAYAAAABAAAAAAANAAYAAAABAAAAAAAOAAYAAAACAAIAAAAOAAUAAAAAAAIAAAAOAAQAAAAAAAIAAAAOAAMAAAAAAAIAAAAOAAIAAAAAAAIAAAAOAAEAAAAAAAIAAAAOAAAAAAAAAAIAAAAOAP//AAAAAAIAAAAOAP7/AAAAAAIAAAAOAP3/AAAAAAIAAAAOAPz/AAAAAAIAAAAOAPv/AAACAAEAAAANAPv/AAABAAAAAAAMAPv/AAABAAAAAAALAPv/AAABAAAAAAAKAPv/AAABAAAAAAAJAPv/AAABAAAAAAAIAPv/AAABAAAAAAAHAPv/AAABAAAAAAAGAPv/AAABAAAAAAAFAPv/AAABAAAAAAAEAPv/AAABAAAAAAADAPv/AAABAAAAAAACAPv/AAABAAAAAAABAPv/AAABAAAAAAAAAPv/AAABAAAAAAD///v/AAABAAAAAAD+//v/AAABAAAAAAD9//v/AAABAAAAAAD//wYAAAABAAAAAAAAAAYAAAABAAAAAAABAAYAAAABAAAAAAA=")
 tile_set = SubResource("TileSet_7b2k1")
 
-[node name="LightFanAnimation" parent="Ground" instance=ExtResource("6_ygcsk")]
-position = Vector2(1921, 1631)
-
 [node name="SteamVent" parent="." instance=ExtResource("6_t14m7")]
 position = Vector2(1032, 574)
 
@@ -4721,5 +4717,7 @@ blend_mode = 1
 metadata/_edit_lock_ = true
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="player_entered" from="House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="House" to="." method="_on_house_player_exited"]
 [connection signal="player_grenade_shot" from="Player" to="." method="_on_player_player_grenade_shot"]
 [connection signal="player_laser_shot" from="Player" to="." method="_on_player_player_laser_shot"]
