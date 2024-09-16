@@ -24,13 +24,13 @@ func _process(_delta: float):
 	# Rotate player
 	look_at(get_global_mouse_position())
 
-
 	# Calculate direction from grenade to mouse position
 	# We normalize the direction to get a unit vector
 	var player_direction = (get_global_mouse_position() - position).normalized()
 
 	# Shooting input
-	if Input.is_action_pressed("primary action") and can_laser:
+	if Input.is_action_pressed("primary action") and can_laser and Globals.laser_amount > 0:
+		Globals.laser_amount -= 1
 		# Randomly select a marker 2D for the laser starting point
 		var laser_markers = $LaserStartPositions.get_children()
 		var laser_position = laser_markers[randi() % laser_markers.size()].global_position
@@ -45,7 +45,8 @@ func _process(_delta: float):
 		player_laser_shot.emit(laser_position, player_direction)
 
 	# Grenade input
-	if Input.is_action_pressed("secondary action") and can_grenade:
+	if Input.is_action_pressed("secondary action") and can_grenade and Globals.grenade_amount > 0:
+		Globals.grenade_amount -= 1
 		var selected_grenade = $GrenadeStartPositions.get_children()
 		var player_position = selected_grenade[0].global_position
 

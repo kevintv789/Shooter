@@ -4688,6 +4688,10 @@ position = Vector2(2911, -890)
 [node name="Gate" parent="." index="2" instance=ExtResource("2_5hldb")]
 position = Vector2(1094, -1101)
 
+[node name="Player" parent="." index="3"]
+position = Vector2(1070, -139)
+metadata/_edit_group_ = true
+
 [node name="Toilet" parent="." index="4" instance=ExtResource("9_or3us")]
 position = Vector2(2459, 1184)
 
