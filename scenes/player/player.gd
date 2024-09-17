@@ -20,6 +20,7 @@ func _process(_delta: float):
 	# Otherwise the player won't move
 	velocity = direction * SPEED
 	move_and_slide()
+	Globals.player_position = global_position
 
 	# Rotate player
 	look_at(get_global_mouse_position())

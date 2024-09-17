@@ -24,3 +24,5 @@ var health: int = 70:
 		if health > 100:
 			health = 100
 		stats_changed.emit()
+
+var player_position: Vector2

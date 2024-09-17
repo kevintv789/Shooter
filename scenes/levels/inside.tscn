@@ -147,14 +147,14 @@ metadata/_edit_group_ = true
 position = Vector2(357, 148)
 shape = SubResource("RectangleShape2D_u8yov")
 
-[node name="Player" parent="." index="7"]
+[node name="Player" parent="." index="8"]
 position = Vector2(3094, 3403)
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" index="9"]
 texture = ExtResource("4_43dse")
 
-[node name="Lights" parent="." index="8"]
+[node name="Lights" parent="." index="9"]
 metadata/_edit_lock_ = true
 
 [node name="LightFanAnimation" parent="Lights" index="0" instance=ExtResource("4_r22v6")]

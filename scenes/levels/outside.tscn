@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://3xki1jyp2w4m"]
+[gd_scene load_steps=15 format=4 uid="uid://3xki1jyp2w4m"]
 
 [ext_resource type="PackedScene" uid="uid://bf67ypgt4lnrd" path="res://scenes/levels/level.tscn" id="1_g1v5w"]
 [ext_resource type="PackedScene" uid="uid://cnms0a2ujs132" path="res://scenes/bed/gate.tscn" id="2_5hldb"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://qqeus4de4m7v" path="res://graphics/tilesets/outside_walls.png" id="5_than6"]
 [ext_resource type="PackedScene" uid="uid://j7vkqv0s484u" path="res://scenes/bed/house.tscn" id="6_6acpl"]
 [ext_resource type="PackedScene" uid="uid://c2ltisosrmh2d" path="res://scenes/items/item.tscn" id="10_jbifc"]
+[ext_resource type="PackedScene" uid="uid://2yh5usq7awa6" path="res://scenes/enemies/scout.tscn" id="10_jgfa2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7n2o1"]
 resource_name = "soil"
@@ -4688,12 +4689,15 @@ position = Vector2(2911, -890)
 [node name="Gate" parent="." index="2" instance=ExtResource("2_5hldb")]
 position = Vector2(1094, -1101)
 
-[node name="Player" parent="." index="4"]
-position = Vector2(1070, -139)
-metadata/_edit_group_ = true
-
 [node name="Item" parent="." index="6" instance=ExtResource("10_jbifc")]
 position = Vector2(467, -94)
+
+[node name="Scout" parent="Enemies" index="0" instance=ExtResource("10_jgfa2")]
+position = Vector2(950, 159)
+
+[node name="Player" parent="." index="8"]
+position = Vector2(1070, -139)
+metadata/_edit_group_ = true
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
