@@ -27,12 +27,10 @@ rotation = 1.5708
 texture = ExtResource("1_dgayy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(1, 0)
 shape = SubResource("CircleShape2D_w88ac")
 
 [node name="AttackArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
 position = Vector2(-5, -1)

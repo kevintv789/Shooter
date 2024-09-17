@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dw0vmm0vwa5xk"]
+[gd_scene load_steps=26 format=4 uid="uid://dw0vmm0vwa5xk"]
 
 [ext_resource type="PackedScene" uid="uid://bf67ypgt4lnrd" path="res://scenes/levels/level.tscn" id="1_1lvd8"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_pturt"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://kut5q21e6n13" path="res://graphics/objects/infestation/small_3.png" id="16_v3sjo"]
 [ext_resource type="Texture2D" uid="uid://xvkeqhx03chw" path="res://graphics/objects/infestation/small_4.png" id="17_dyd8t"]
 [ext_resource type="Texture2D" uid="uid://b6eey811qp4uu" path="res://graphics/objects/infestation/spikes.png" id="18_e48mj"]
+[ext_resource type="PackedScene" uid="uid://hi83svv8nqma" path="res://scenes/enemies/bug.tscn" id="19_35rhj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8yov"]
 size = Vector2(734, 316)
@@ -147,8 +148,11 @@ metadata/_edit_group_ = true
 position = Vector2(357, 148)
 shape = SubResource("RectangleShape2D_u8yov")
 
+[node name="Bug" parent="Enemies" index="0" instance=ExtResource("19_35rhj")]
+position = Vector2(2063, 2772)
+
 [node name="Player" parent="." index="8"]
-position = Vector2(3094, 3403)
+position = Vector2(3098, 3403)
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="Player" index="9"]
