@@ -6,4 +6,5 @@ class_name ItemContainer
 
 var opened: bool = false
 
+@warning_ignore("unused_signal")
 signal lid_opened(pos, direction)
