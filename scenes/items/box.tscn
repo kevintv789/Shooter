@@ -1,17 +1,43 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs2jkf3d50rtq"]
+[gd_scene load_steps=6 format=3 uid="uid://bs2jkf3d50rtq"]
 
 [ext_resource type="PackedScene" uid="uid://2fu1n7i8uqb5" path="res://scenes/items/item_container.tscn" id="1_7t57l"]
 [ext_resource type="Script" path="res://scenes/items/box.gd" id="2_ippfa"]
-[ext_resource type="Texture2D" uid="uid://bgargivc0kiyr" path="res://graphics/objects/Box.png" id="2_knfsr"]
+[ext_resource type="Texture2D" uid="uid://cbfsw0srmw7x1" path="res://graphics/objects/box/base.png" id="3_jamen"]
+[ext_resource type="Texture2D" uid="uid://dl4omb11wsufu" path="res://graphics/objects/box/lid.png" id="4_b6p3t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b08vp"]
-size = Vector2(376, 256)
+size = Vector2(396, 170)
 
 [node name="Box" instance=ExtResource("1_7t57l")]
 script = ExtResource("2_ippfa")
 
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_knfsr")
+[node name="BaseSprite" parent="." index="0"]
+texture = ExtResource("3_jamen")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="LidSprite" parent="." index="1"]
+texture = ExtResource("4_b6p3t")
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(-1, -1)
 shape = SubResource("RectangleShape2D_b08vp")
+
+[node name="Marker2D" type="Marker2D" parent="SpawnPositions" index="0"]
+position = Vector2(-120, -35)
+
+[node name="Marker2D2" type="Marker2D" parent="SpawnPositions" index="1"]
+position = Vector2(-29, -31)
+
+[node name="Marker2D3" type="Marker2D" parent="SpawnPositions" index="2"]
+position = Vector2(-114, 45)
+
+[node name="Marker2D4" type="Marker2D" parent="SpawnPositions" index="3"]
+position = Vector2(-33, 34)
+
+[node name="Marker2D5" type="Marker2D" parent="SpawnPositions" index="4"]
+position = Vector2(115, -45)
+
+[node name="Marker2D6" type="Marker2D" parent="SpawnPositions" index="5"]
+position = Vector2(102, 41)
+
+[node name="Marker2D7" type="Marker2D" parent="SpawnPositions" index="6"]
+position = Vector2(47, -38)
