@@ -11,7 +11,6 @@ var can_grenade: bool = true
 # Signals
 signal player_laser_shot(position: Vector2, direction: Vector2)
 signal player_grenade_shot(position: Vector2, direction: Vector2)
-signal update_stats()
 
 func _process(_delta: float):
 	# Movement direction - negative x is left, positive x is right, negative y is up, positive y is down
@@ -60,16 +59,5 @@ func _process(_delta: float):
 func _on_timer_timeout() -> void:
 	can_laser = true
 
-
 func _on_grenade_timer_timeout() -> void:
 	can_grenade = true
-
-func add_item(item_type: String) -> void:
-	if item_type == 'laser':
-		Globals.laser_amount += 10
-	elif item_type == 'grenade':
-		Globals.grenade_amount += 1
-	elif item_type == 'health':
-		Globals.health += 10
-
-	update_stats.emit()

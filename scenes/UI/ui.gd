@@ -12,13 +12,19 @@ var red_color: Color = Color("ff4d4d")
 
 # Preserve the laser and grenade amount when a new scene is loaded
 func _ready() -> void:
-	update_laser_amount()
-	update_grenade_amount()
-	update_health_bar()
-	
+	update_ui()
+
+	# Connect Global signals
+	Globals.connect("stats_changed", update_ui)
+
 func update_laser_amount() -> void:
 	laser_label.text = str(Globals.laser_amount)
 	update_color()
+
+func update_ui() -> void:
+	update_laser_amount()
+	update_grenade_amount()
+	update_health_bar()
 
 func update_grenade_amount() -> void:
 	grenade_label.text = str(Globals.grenade_amount)
