@@ -14,7 +14,6 @@ func _ready() -> void:
 	for container in containers:
 		container.connect("lid_opened", _on_container_opened)
 
-	print(scouts)
 	for scout in scouts:
 		scout.connect("scout_attack", _on_scout_attack)
 
@@ -46,4 +45,4 @@ func _on_player_player_grenade_shot(pos: Vector2, direction: Vector2) -> void:
 	grenade.position = pos
 	grenade.linear_velocity = direction * grenade.SPEED
 	$Projectiles.add_child(grenade)
-	$UI.update_grenade_amount()
+	

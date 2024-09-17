@@ -35,3 +35,6 @@ func _on_laser_cooldown_timeout() -> void:
 	if gun_attacked_index >= $LaserSpawnPositions.get_child_count():
 		gun_attacked_index = 0
 	can_attack = true
+
+func hit() -> void:
+	queue_free()
