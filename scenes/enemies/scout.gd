@@ -5,6 +5,8 @@ var can_attack: bool = true
 var attack_cooldown: float = 1.0
 var gun_attacked_index: int = 0
 
+var health: int = 40
+
 signal scout_attack(pos: Vector2, direction: Vector2)
 
 func _process(_delta: float) -> void:
@@ -36,5 +38,22 @@ func _on_laser_cooldown_timeout() -> void:
 		gun_attacked_index = 0
 	can_attack = true
 
-func hit() -> void:
-	queue_free()
+func hit(damage: int) -> void:
+	health -= damage
+
+	$Sprite2D.material.set_shader_parameter("s_color", Color.RED)
+	$Sprite2D.material.set_shader_parameter("progress", 1.0)
+
+	# Create a timer to reset the progress back to 0
+	var timer = Timer.new()
+	timer.wait_time = 0.1
+	timer.one_shot = true
+	timer.autostart = true
+	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	add_child(timer)
+
+	if health <= 0:
+		queue_free()
+
+func _on_timer_timeout() -> void:
+	$Sprite2D.material.set_shader_parameter("progress", 0.0)

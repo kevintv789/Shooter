@@ -63,5 +63,5 @@ func _on_timer_timeout() -> void:
 func _on_grenade_timer_timeout() -> void:
 	can_grenade = true
 
-func hit() -> void:
-	Globals.health -= 15
+func hit(damage: int) -> void:
+	Globals.health -= damage

@@ -1,6 +1,6 @@
 extends ItemContainer
 
-func hit() -> void:
+func hit(_damage: int) -> void:
 	if opened:
 		return
 

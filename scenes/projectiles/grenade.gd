@@ -3,6 +3,7 @@ extends RigidBody2D
 const SPEED = 750
 var explosion_active: bool = false
 var explosion_radius: int = 200
+var damage: int = 20
 
 func _ready():
 	$Explosion.hide()
@@ -14,6 +15,7 @@ func explode():
 
 func _process(_delta: float) -> void:
 	if explosion_active:
+		explosion_active = false
 		var entity_group = get_tree().get_nodes_in_group("Entity")
 		var container_group = get_tree().get_nodes_in_group("Container")
 		var targets = entity_group + container_group
@@ -23,4 +25,4 @@ func _process(_delta: float) -> void:
 			var in_range = dist_to_target < explosion_radius
 
 			if "hit" in target and in_range:
-				target.hit()
+				target.hit(damage)
