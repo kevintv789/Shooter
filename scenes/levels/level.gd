@@ -14,7 +14,7 @@ func _ready() -> void:
 		container.connect("lid_opened", _on_container_opened)
 
 func _on_container_opened(pos: Vector2, direction: Vector2) -> void:
-	var item = item_scene.instantiate() 
+	var item = item_scene.instantiate()
 	item.position = pos
 	item.direction = direction
 	$Items.call_deferred('add_child', item)
@@ -39,15 +39,3 @@ func _on_player_player_grenade_shot(pos: Vector2, direction: Vector2) -> void:
 	grenade.linear_velocity = direction * grenade.SPEED
 	$Projectiles.add_child(grenade)
 	$UI.update_grenade_amount()
-
-
-func _on_house_player_entered() -> void:
-	var tween: Tween = get_tree().create_tween()
-	# Zoom in on the player when they enter the house
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(1, 1), 1).set_trans(Tween.TRANS_QUAD)
-
-
-func _on_house_player_exited() -> void:
-	var tween: Tween = get_tree().create_tween()
-	# Zoom out on the player when they exit the house
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(0.5, 0.5), 1)

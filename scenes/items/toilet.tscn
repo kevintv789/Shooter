@@ -9,6 +9,7 @@
 radius = 105.622
 
 [node name="Toilet" instance=ExtResource("1_ekord")]
+scale = Vector2(0.8, 0.8)
 script = ExtResource("2_qbw3o")
 
 [node name="BaseSprite" parent="." index="0"]

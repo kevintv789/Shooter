@@ -1,12 +1,7 @@
 extends LevelParent
 
 # Preload the scene first so we don't have to load it on scene change
-var outside_level_scene: PackedScene
-
-func _ready():
-	outside_level_scene = load("res://scenes/levels/outside.tscn")
-	if outside_level_scene == null:
-		print("Failed to load outside level scene")
+@onready var outside_level_scene: PackedScene = load("res://scenes/levels/outside.tscn")
 
 func _on_exit_gate_area_body_entered(_body: Node2D) -> void:
 	var tween = create_tween()

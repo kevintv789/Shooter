@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://3xki1jyp2w4m"]
+[gd_scene load_steps=14 format=4 uid="uid://3xki1jyp2w4m"]
 
 [ext_resource type="PackedScene" uid="uid://bf67ypgt4lnrd" path="res://scenes/levels/level.tscn" id="1_g1v5w"]
 [ext_resource type="PackedScene" uid="uid://cnms0a2ujs132" path="res://scenes/bed/gate.tscn" id="2_5hldb"]
@@ -8,9 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://oxq036c4aoxa" path="res://graphics/tilesets/soil.png" id="4_1otqv"]
 [ext_resource type="Texture2D" uid="uid://qqeus4de4m7v" path="res://graphics/tilesets/outside_walls.png" id="5_than6"]
 [ext_resource type="PackedScene" uid="uid://j7vkqv0s484u" path="res://scenes/bed/house.tscn" id="6_6acpl"]
-[ext_resource type="PackedScene" uid="uid://djgovq80aka47" path="res://scenes/items/toilet.tscn" id="9_or3us"]
 [ext_resource type="PackedScene" uid="uid://c2ltisosrmh2d" path="res://scenes/items/item.tscn" id="10_jbifc"]
-[ext_resource type="PackedScene" uid="uid://bs2jkf3d50rtq" path="res://scenes/items/box.tscn" id="11_bggyd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7n2o1"]
 resource_name = "soil"
@@ -4687,23 +4685,16 @@ tile_set = SubResource("TileSet_iwj52")
 [node name="House" parent="Ground" index="4" instance=ExtResource("6_6acpl")]
 position = Vector2(2911, -890)
 
-[node name="Box" parent="." index="1" instance=ExtResource("11_bggyd")]
-position = Vector2(1427, 281)
-collision_mask = 15
-
-[node name="Toilet" parent="." index="2" instance=ExtResource("9_or3us")]
-position = Vector2(790, 298)
-rotation = -3.14159
-collision_mask = 15
-
-[node name="Gate" parent="." index="4" instance=ExtResource("2_5hldb")]
+[node name="Gate" parent="." index="2" instance=ExtResource("2_5hldb")]
 position = Vector2(1094, -1101)
 
-[node name="Player" parent="." index="6"]
+[node name="Player" parent="." index="4"]
 position = Vector2(1070, -139)
 metadata/_edit_group_ = true
 
-[node name="Item" parent="." index="8" instance=ExtResource("10_jbifc")]
+[node name="Item" parent="." index="6" instance=ExtResource("10_jbifc")]
 position = Vector2(467, -94)
 
+[connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
