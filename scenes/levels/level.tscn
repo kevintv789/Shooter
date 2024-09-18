@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ck4lrjvb12bu8" path="res://scenes/player/player.tscn" id="3_4oget"]
 [ext_resource type="PackedScene" uid="uid://bcgvctae5jo52" path="res://scenes/UI/ui.tscn" id="3_xixad"]
 
-[node name="Level" type="Node2D"]
+[node name="Level2" type="Node2D"]
 script = ExtResource("1_vwian")
 
 [node name="Decals" type="Node2D" parent="."]
