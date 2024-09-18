@@ -9,8 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://qqeus4de4m7v" path="res://graphics/tilesets/outside_walls.png" id="5_than6"]
 [ext_resource type="PackedScene" uid="uid://j7vkqv0s484u" path="res://scenes/bed/house.tscn" id="6_6acpl"]
 [ext_resource type="PackedScene" uid="uid://c2ltisosrmh2d" path="res://scenes/items/item.tscn" id="10_jbifc"]
-[ext_resource type="PackedScene" uid="uid://2yh5usq7awa6" path="res://scenes/enemies/scout.tscn" id="10_jgfa2"]
-[ext_resource type="PackedScene" uid="uid://cpla38wxgdr83" path="res://scenes/enemies/drone.tscn" id="11_e15m7"]
+[ext_resource type="PackedScene" uid="uid://jb61kaili5xu" path="res://scenes/enemies/car.tscn" id="10_nk7gq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7n2o1"]
 resource_name = "soil"
@@ -4660,8 +4659,15 @@ texture_region_size = Vector2i(390, 390)
 tile_size = Vector2i(390, 390)
 sources/0 = SubResource("TileSetAtlasSource_t08ah")
 
+[sub_resource type="Curve2D" id="Curve2D_rxp0t"]
+_data = {
+"points": PackedVector2Array(213.333, -730.667, -213.333, 730.667, 1509, 1478, 0, 0, 0, 0, 2794, 715, 266.667, -469.333, -266.667, 469.333, 3616, 918, 101.333, 506.667, -101.333, -506.667, 4154, 1622, -208, -245.333, 208, 245.333, 3994, 2038, 597.333, -80, -597.333, 80, 2426, 2763, 666.667, 389.333, -666.667, -389.333, 1301, 2566, -53.3333, 512, 53.3333, -512, 1002, 1766, 0, 0, 0, 0, 1509, 1478)
+}
+point_count = 9
+
 [node name="Outside" instance=ExtResource("1_g1v5w")]
 script = ExtResource("2_rlrsk")
+metadata/_edit_lock_ = true
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -4670,6 +4676,7 @@ scale = Vector2(8.82517, 7.40376)
 texture = ExtResource("2_v8wir")
 region_enabled = true
 region_rect = Rect2(-2404.46, -826.78, 6906.91, 3247.14)
+metadata/_edit_lock_ = true
 
 [node name="DirtPatch" type="Sprite2D" parent="Ground" index="1"]
 modulate = Color(1, 0.436633, 0.378835, 1)
@@ -4693,13 +4700,14 @@ position = Vector2(1094, -1101)
 [node name="Item" parent="." index="6" instance=ExtResource("10_jbifc")]
 position = Vector2(467, -94)
 
-[node name="Scout" parent="Enemies" index="0" instance=ExtResource("10_jgfa2")]
-position = Vector2(359, 409)
+[node name="CarPath" type="Path2D" parent="." index="7"]
+curve = SubResource("Curve2D_rxp0t")
 
-[node name="Drone" parent="Enemies" index="1" instance=ExtResource("11_e15m7")]
-position = Vector2(1874, 382)
+[node name="Car" parent="CarPath" index="0" instance=ExtResource("10_nk7gq")]
+position = Vector2(1509, 1478)
+rotation = 1.85487
 
-[node name="Player" parent="." index="8"]
+[node name="Player" parent="." index="9"]
 position = Vector2(1070, -139)
 metadata/_edit_group_ = true
 
