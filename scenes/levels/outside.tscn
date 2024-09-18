@@ -4679,8 +4679,8 @@ _data = {
 point_count = 9
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ypyd7"]
-vertices = PackedVector2Array(-1297.91, -172, 1178.1, -172, -412.781, 6005.05, -1254.98, 4696.5, -1786.92, 5674.59, -2505.68, 7544.82, -4857.82, 5600.93, -4956.76, 236.672, -4344.05, 380.898, -4379.06, 5585.54, -1801.95, 5670.81, -3319.75, 5752.74, -7848.23, 5683.81, -8032.64, 191.5, -5980.86, 289.539, -5902.85, 5608.07, -3440.79, -23.6016, -1837.93, -121.367)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 4, 5, 11), PackedInt32Array(12, 13, 14, 15), PackedInt32Array(5, 12, 15, 6), PackedInt32Array(5, 6, 9, 11), PackedInt32Array(16, 17, 10, 11)])
+vertices = PackedVector2Array(-1297.91, -172, 1178.1, -172, -412.781, 6005.05, -1254.98, 4696.5, -1786.92, 5674.59, -2502.9, 7542.77, -4866.89, 5108.46, -4956.76, 236.672, -4344.05, 380.898, -4379.06, 5585.54, -3319.75, 5752.74, -1801.95, 5670.81, -3440.79, -23.6016, -1837.93, -121.367, -4886.74, 5116.73, -4878.18, 5581.06, -5883.14, 5587.93, -5905.43, 4067.74, -5980.86, 289.398, -5926.16, 4017.67, -9774.81, 54.5703)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 3, 2, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(5, 6, 9), PackedInt32Array(5, 9, 10), PackedInt32Array(4, 5, 10, 11), PackedInt32Array(12, 13, 11, 10), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(1191, -182, -1308, -182, -1265, 4694, -1792, 5663, -1828, -132, -3451, -33, -3330, 5741, -4369, 5577, -4334, 373, -4967, 224, -4868, 5591, -5893, 5598, -5971, 280, -8043, 181, -7858, 5691, -2504, 7556, -404, 6011)])
 
 [node name="Outside" instance=ExtResource("1_g1v5w")]
