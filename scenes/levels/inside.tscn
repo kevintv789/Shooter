@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dw0vmm0vwa5xk"]
+[gd_scene load_steps=27 format=4 uid="uid://dw0vmm0vwa5xk"]
 
 [ext_resource type="PackedScene" uid="uid://bf67ypgt4lnrd" path="res://scenes/levels/level.tscn" id="1_1lvd8"]
 [ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_pturt"]
@@ -25,7 +25,6 @@
 [ext_resource type="Texture2D" uid="uid://b6eey811qp4uu" path="res://graphics/objects/infestation/spikes.png" id="18_e48mj"]
 [ext_resource type="PackedScene" uid="uid://hi83svv8nqma" path="res://scenes/enemies/bug.tscn" id="19_35rhj"]
 [ext_resource type="PackedScene" uid="uid://2yh5usq7awa6" path="res://scenes/enemies/scout.tscn" id="20_3u4kp"]
-[ext_resource type="PackedScene" uid="uid://cpla38wxgdr83" path="res://scenes/enemies/drone.tscn" id="21_tody0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8yov"]
 size = Vector2(734, 316)
@@ -155,9 +154,6 @@ position = Vector2(2063, 2772)
 
 [node name="Scout" parent="Enemies" index="1" instance=ExtResource("20_3u4kp")]
 position = Vector2(3601, 1548)
-
-[node name="Drone" parent="Enemies" index="2" instance=ExtResource("21_tody0")]
-position = Vector2(2973, 2714)
 
 [node name="Player" parent="." index="8"]
 position = Vector2(3098, 3403)

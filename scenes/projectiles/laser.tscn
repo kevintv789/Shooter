@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://t8ro1uwlkub"]
+[gd_scene load_steps=5 format=3 uid="uid://t8ro1uwlkub"]
 
 [ext_resource type="Script" path="res://scenes/projectiles/laser.gd" id="1_35gk5"]
 [ext_resource type="Texture2D" uid="uid://d3l1idnpep3qo" path="res://graphics/projectiles/blue.png" id="1_xp4al"]
+[ext_resource type="AudioStream" uid="uid://5kx5askhs0rp" path="res://audio/laser.wav" id="3_fdp70"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_aq7jh"]
 height = 118.0
@@ -21,6 +22,12 @@ shape = SubResource("CapsuleShape2D_aq7jh")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_fdp70")
+volume_db = -20.678
+pitch_scale = 1.7
+autoplay = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

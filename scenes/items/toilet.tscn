@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://djgovq80aka47"]
+[gd_scene load_steps=7 format=3 uid="uid://djgovq80aka47"]
 
 [ext_resource type="PackedScene" uid="uid://2fu1n7i8uqb5" path="res://scenes/items/item_container.tscn" id="1_ekord"]
 [ext_resource type="Texture2D" uid="uid://c8g0rrdx4d4av" path="res://graphics/objects/toilet.png" id="2_0g3qx"]
 [ext_resource type="Script" path="res://scenes/items/toilet.gd" id="2_qbw3o"]
 [ext_resource type="Texture2D" uid="uid://b25un8ui3kjy5" path="res://graphics/objects/lid.png" id="4_rvsra"]
+[ext_resource type="AudioStream" uid="uid://cnogpiiif1c4r" path="res://audio/container_hit.mp3" id="5_ahhvh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xa0s4"]
 radius = 105.622
@@ -41,3 +42,6 @@ position = Vector2(41, 56)
 
 [node name="Marker2D7" type="Marker2D" parent="SpawnPositions" index="6"]
 position = Vector2(47, -38)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="4"]
+stream = ExtResource("5_ahhvh")

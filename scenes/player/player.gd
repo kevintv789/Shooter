@@ -65,3 +65,4 @@ func _on_grenade_timer_timeout() -> void:
 
 func hit(damage: int) -> void:
 	Globals.health -= damage
+	$AudioStreamPlayer2D.play()

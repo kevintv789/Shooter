@@ -13,7 +13,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position += DIRECTION * SPEED * delta
 
-
 func _on_body_entered(body: Node2D) -> void:
 	# Check if the body has a hit function
 	if body.has_method("hit"):

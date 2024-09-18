@@ -29,12 +29,16 @@ func _process(delta: float) -> void:
 	rotation += rotation_speed * delta
 
 func _on_body_entered(_body: Node2D) -> void:
+	$AudioStreamPlayer2D.play()
+
 	if type == 'health':
 		Globals.health += 10
 	elif type == 'laser':
 		Globals.laser_amount += 10
 	elif type == 'grenade':
 		Globals.grenade_amount += 1
-
+	
+	hide()
+	await $AudioStreamPlayer2D.finished
 	queue_free()
 	

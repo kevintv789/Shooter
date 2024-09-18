@@ -26,6 +26,8 @@ func hit(damage: int) -> void:
 		$SpriteAnimation.material.set_shader_parameter("progress", 1.0)
 		$Particles/HitParticles.emitting = true
 
+		$AudioStreamPlayer2D.play()
+
 		if health <= 0:
 			# Disappears after 0.5 seconds so particles can play
 			await get_tree().create_timer(0.5).timeout
